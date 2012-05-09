@@ -24,45 +24,58 @@ namespace Morphy
 
             Settings.Indent = true; //отступ
             Settings.IndentChars = "    "; // собственно сам отступ - 4 пробела
-
+            //Settings.ConformanceLevel = ConformanceLevel.Fragment;
             Settings.NewLineChars = "\n"; //переход
 
             string txt1;
             txt1 = textBox1.Text;
 
-            string[] Words = new string[100];
-            string[] Lex = new string[] {" ",".",",","!","?",":",";"};
+            string[] Words = new string[1000];
+            char[] Lex = new char[] {' ','.',',','!','?',':',';'};
             string Word;
-            int a,b,i,j,c;
+            string tt;
+            tt = "";
+            int b;
+            Word = "";
+            b = 0;
 
-            a = txt1.Length;
-            b = 1;
-
-            for (i = 1; i <= a; i++)
+            for (int i = 0; i < txt1.Length; i++) //загоняем слова в массив
             {
-                if (txt1[i] in Lex) 
-                {
-                    Word = Word + txt1[i];
-                }
-                else
+                //tt += txt1[i];
+                //if (((IList<string>)Lex).Contains(txt1[i])) //перевод в лист для контейна
+                if (((IList<char>)Lex).Contains(txt1[i]))
                 {
                     Words[b] = Word;
                     Word = "";
                     b++;
+                    //tt = "";
+                }
+                else
+                {
+                   Word += txt1[i];
+                   //tt = "";
                 }
             }
 
-            output = XmlWriter.Create("xmlt.xml", Settings);
-            
-                output.WriteStartElement(txt1);
+            output = XmlWriter.Create("result.xml", Settings); //массив слов в XML
+
+            output.WriteStartElement("Слова"); //делаем корневой нод
+
+            for (int i = 0; i < b; i++)
+            {
+                output.WriteStartElement(Words[i]);
                 output.WriteAttributeString("падеж", "склонительный");
+                output.WriteAttributeString("тип", "существительное");
                 output.WriteEndElement();
-                output.Flush();
-                output.Close();
 
-            
+            }
 
+            output.WriteEndElement();
+                
+            output.Flush();
+                
+            output.Close();
 
-        }
+            }
     }
 }

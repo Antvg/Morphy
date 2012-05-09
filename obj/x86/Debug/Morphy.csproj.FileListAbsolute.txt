@@ -1,0 +1,9 @@
+C:\Craft Works\Morphy\bin\Debug\Morphy.exe
+C:\Craft Works\Morphy\bin\Debug\Morphy.pdb
+C:\Craft Works\Morphy\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Craft Works\Morphy\obj\x86\Debug\Morphy.Properties.Resources.resources
+C:\Craft Works\Morphy\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Craft Works\Morphy\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Craft Works\Morphy\obj\x86\Debug\Morphy.exe
+C:\Craft Works\Morphy\obj\x86\Debug\Morphy.pdb
+C:\Craft Works\Morphy\obj\x86\Debug\Morphy.Form1.resources
